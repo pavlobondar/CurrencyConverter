@@ -22,27 +22,38 @@ protocol ConverterViewModelInput: ViewModelProtocol {
 protocol ConverterViewModelOutput: ViewModelProtocol {
     func showError(error: EndpointError)
     func updateView(model: CurrencyConversionResponse)
+    func updateTarget(model: CurrencyConversionResponse)
     func clearAmounts()
     func showCountriesView(viewModel: CountriesViewModel)
     func updateBaseAmountCardState(isValid: Bool, message: String)
 }
 
 final class ConverterViewModel: ConverterViewModelInput {
+    enum ConverterAction {
+        case initial
+        case updateCurrency
+        case switchCurrency
+        case updateAmount
+    }
+    
     private let networkService: NetworkServiceProtocol
     
     private var convertCurrencyResponse: CurrencyConversionResponse
+    private var converterAction: ConverterAction
     
     weak var delegate: ConverterViewModelOutput?
     
     init(networkService: NetworkServiceProtocol = NetworkService.makeDefault()) {
         self.networkService = networkService
         self.convertCurrencyResponse = .makeDefault()
+        self.converterAction = .initial
     }
     
-    private func validateAndProcessConversion() {
+    private func validateAndProcessConversion(action: ConverterAction) {
         let amount = convertCurrencyResponse.fromAmount
         let baseCurrency = convertCurrencyResponse.from
         let message = baseCurrency.maxAmountMessage
+        converterAction = action
         do {
             let _ = try TargetCurrencyValidator.shared.validate(amount: amount, for: baseCurrency)
             let request = CurrencyConversionRequest(response: convertCurrencyResponse)
@@ -64,7 +75,12 @@ final class ConverterViewModel: ConverterViewModelInput {
         
     private func updateConverter() {
         let response = convertCurrencyResponse
-        delegate?.updateView(model: response)
+        switch converterAction {
+        case .initial, .updateCurrency, .switchCurrency:
+            delegate?.updateView(model: response)
+        case .updateAmount:
+            delegate?.updateTarget(model: response)
+        }
     }
     
     func convertCurrency(request: CurrencyConversionRequest) {
@@ -85,7 +101,7 @@ final class ConverterViewModel: ConverterViewModelInput {
         let viewModel = CountriesViewModel()
         viewModel.actionHandler = { [weak self] currency in
             self?.convertCurrencyResponse.from = currency
-            self?.validateAndProcessConversion()
+            self?.validateAndProcessConversion(action: .updateCurrency)
         }
         delegate?.showCountriesView(viewModel: viewModel)
     }
@@ -94,7 +110,7 @@ final class ConverterViewModel: ConverterViewModelInput {
         let viewModel = CountriesViewModel()
         viewModel.actionHandler = { [weak self] currency in
             self?.convertCurrencyResponse.to = currency
-            self?.validateAndProcessConversion()
+            self?.validateAndProcessConversion(action: .updateCurrency)
         }
         delegate?.showCountriesView(viewModel: viewModel)
     }
@@ -104,11 +120,11 @@ final class ConverterViewModel: ConverterViewModelInput {
         let targetCurrency = convertCurrencyResponse.to
         convertCurrencyResponse.from = targetCurrency
         convertCurrencyResponse.to = baseCurrency
-        validateAndProcessConversion()
+        validateAndProcessConversion(action: .switchCurrency)
     }
     
     func updateAmount(_ amount: Double) {
         convertCurrencyResponse.fromAmount = amount
-        validateAndProcessConversion()
+        validateAndProcessConversion(action: .updateAmount)
     }
 }

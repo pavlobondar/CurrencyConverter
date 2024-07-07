@@ -13,7 +13,6 @@ final class ConverterViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel!
     
     private let viewModel: ConverterViewModelInput = ConverterViewModel()
-    private var convertTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +39,7 @@ final class ConverterViewController: UIViewController {
             case .switchCurrencies:
                 self?.viewModel.switchCurrencies()
             case .amountChange(let amount):
-                self?.convertTimer?.invalidate()
-                self?.convertTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-                    self?.viewModel.updateAmount(amount)
-                }
+                self?.viewModel.updateAmount(amount)
             }
         }
     }
@@ -63,6 +59,10 @@ extension ConverterViewController: ConverterViewModelOutput {
     
     func updateView(model: CurrencyConversionResponse) {
         converterPanel.updateView(model: model)
+    }
+    
+    func updateTarget(model: CurrencyConversionResponse) {
+        converterPanel.updateTargetCard(model: model)
     }
     
     func clearAmounts() {

@@ -79,6 +79,10 @@ final class ConverterPanelView: UIView {
         receiverCard.updateCard(type: model.to, amount: model.toAmount)
     }
     
+    func updateTargetCard(model: CurrencyConversionResponse) {
+        receiverCard.updateCard(type: model.to, amount: model.toAmount)
+    }
+    
     func clearAmounts() {
         [sendingCard, receiverCard].forEach {
             $0.clearAmount()
