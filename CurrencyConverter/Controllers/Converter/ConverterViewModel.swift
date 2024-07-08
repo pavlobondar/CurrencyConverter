@@ -40,6 +40,7 @@ final class ConverterViewModel: ConverterViewModelInput {
     
     private var convertCurrencyResponse: CurrencyConversionResponse
     private var converterAction: ConverterAction
+    private var searchTimer: Timer?
     
     weak var delegate: ConverterViewModelOutput?
     
@@ -58,7 +59,10 @@ final class ConverterViewModel: ConverterViewModelInput {
             let _ = try TargetCurrencyValidator.shared.validate(amount: amount, for: baseCurrency)
             let request = CurrencyConversionRequest(response: convertCurrencyResponse)
             delegate?.updateBaseAmountCardState(isValid: true, message: message)
-            convertCurrency(request: request)
+            searchTimer?.invalidate()
+            searchTimer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { [weak self] _ in
+                self?.convertCurrency(request: request)
+            }
         } catch CurrencyValidationResult.exceedsMax {
             delegate?.updateBaseAmountCardState(isValid: false, message: message)
             updateConverter()
