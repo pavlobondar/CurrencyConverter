@@ -8,7 +8,7 @@
 import UIKit
 
 final class ShadowView: UIView {
-    var shadowColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.2039528146) {
+    var shadowColor: UIColor = .appColor(.shadowColor) {
         didSet {
             applyShadow()
         }
@@ -26,6 +26,12 @@ final class ShadowView: UIView {
         }
     }
     
+    var cornerRadius: CGFloat = 16.0 {
+        didSet {
+            setupCornerRadius()
+        }
+    }
+    
     override class var layerClass: Swift.AnyClass {
         return CAGradientLayer.self
     }
@@ -37,18 +43,17 @@ final class ShadowView: UIView {
     }
     
     private func setupCornerRadius() {
-        layer.cornerRadius = 16
-        layer.masksToBounds = true
+        setCornerRadius(cornerRadius)
     }
     
     private func applyShadow() {
-        guard let gradientLayer = self.layer as? CAGradientLayer else { return }
-        gradientLayer.masksToBounds = false
-        gradientLayer.shadowOpacity = 1.0
-        gradientLayer.shadowRadius = shadowRadius
-        gradientLayer.shadowOffset = shadowOffset
-        gradientLayer.shadowColor = shadowColor.cgColor
-        gradientLayer.shouldRasterize = true
-        gradientLayer.rasterizationScale = UIScreen.main.scale
+        guard let shadowLayer = self.layer as? CAGradientLayer else { return }
+        shadowLayer.masksToBounds = false
+        shadowLayer.shadowOpacity = 0.3
+        shadowLayer.shadowRadius = shadowRadius
+        shadowLayer.shadowOffset = shadowOffset
+        shadowLayer.shadowColor = shadowColor.cgColor
+        shadowLayer.shouldRasterize = true
+        shadowLayer.rasterizationScale = UIScreen.main.scale
     }
 }

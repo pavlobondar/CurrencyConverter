@@ -8,7 +8,7 @@
 import UIKit
 
 final class ToastView: UIView {
-    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var containerView: ShadowView!
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
@@ -25,13 +25,9 @@ final class ToastView: UIView {
         commonInit()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        containerView.addShadow(radius: 5.0, opacity: 0.2)
-    }
-    
     private func commonInit() {
-        containerView.setCornerRadius(10.0)
+        containerView.cornerRadius = 10
+        containerView.shadowRadius = 5
     }
     
     func update(error: EndpointError) {

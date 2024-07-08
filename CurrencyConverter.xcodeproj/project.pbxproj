@@ -17,6 +17,7 @@
 		52260DB92C397BC100D7855D /* CurrencyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52260DB82C397BC100D7855D /* CurrencyCardView.swift */; };
 		52260DBB2C397BF000D7855D /* CurrencyCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52260DBA2C397BF000D7855D /* CurrencyCardView.xib */; };
 		525098152C3BD7F3002BEF41 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525098142C3BD7F3002BEF41 /* ShadowView.swift */; };
+		525098182C3BDD52002BEF41 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525098172C3BDD52002BEF41 /* UIColor+AppColor.swift */; };
 		529C77E42C39884E0089CD71 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C77E32C39884E0089CD71 /* UIView+Shadow.swift */; };
 		529C77E62C398EE20089CD71 /* UIStackView+Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C77E52C398EE20089CD71 /* UIStackView+Clear.swift */; };
 		529C77E82C39A2610089CD71 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C77E72C39A2610089CD71 /* RoundedLabel.swift */; };
@@ -66,6 +67,7 @@
 		52260DB82C397BC100D7855D /* CurrencyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCardView.swift; sourceTree = "<group>"; };
 		52260DBA2C397BF000D7855D /* CurrencyCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCardView.xib; sourceTree = "<group>"; };
 		525098142C3BD7F3002BEF41 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		525098172C3BDD52002BEF41 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
 		529C77E32C39884E0089CD71 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		529C77E52C398EE20089CD71 /* UIStackView+Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Clear.swift"; sourceTree = "<group>"; };
 		529C77E72C39A2610089CD71 /* RoundedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedLabel.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				52D15BEC2C3943020070D301 /* UIView+CornerRadius.swift */,
+				525098172C3BDD52002BEF41 /* UIColor+AppColor.swift */,
 				52D15BEE2C39431A0070D301 /* UIView+Xib.swift */,
 				52260DA92C39651400D7855D /* UIView+Border.swift */,
 				529C77E32C39884E0089CD71 /* UIView+Shadow.swift */,
@@ -531,6 +534,7 @@
 				52D15BED2C3943020070D301 /* UIView+CornerRadius.swift in Sources */,
 				529C77FD2C3AB2CB0089CD71 /* ConverterViewModel.swift in Sources */,
 				529C77E62C398EE20089CD71 /* UIStackView+Clear.swift in Sources */,
+				525098182C3BDD52002BEF41 /* UIColor+AppColor.swift in Sources */,
 				52D15BF82C3947BD0070D301 /* CellViewModel.swift in Sources */,
 				52260DA42C394E3B00D7855D /* RoundedView.swift in Sources */,
 				529C780E2C3AEABD0089CD71 /* ToastView.swift in Sources */,

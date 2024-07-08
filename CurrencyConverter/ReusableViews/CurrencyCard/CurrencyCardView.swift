@@ -39,7 +39,7 @@ final class CurrencyCardView: UIView {
             case .sending:
                 return .systemBlue
             case .receiver:
-                return .black
+                return .label
             case .error:
                 return .systemPink
             }
@@ -90,6 +90,16 @@ final class CurrencyCardView: UIView {
         commonInit()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        switch style {
+        case .sending:
+            addBottomShadow(yOffset: 7.0, opacity: 0.1)
+        case .receiver, .error:
+            break
+        }
+    }
+    
     @IBAction private func contryButtonAction(_ sender: UIButton) {
         countryButtonAction?()
     }
@@ -106,7 +116,6 @@ final class CurrencyCardView: UIView {
         switch style {
         case .sending:
             titleLabel.text = style.title
-            addBottomShadow(yOffset: 7.0, opacity: 0.1)
             addBorder(.clear, width: 0.0)
         case .receiver:
             titleLabel.text = style.title

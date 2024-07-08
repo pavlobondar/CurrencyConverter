@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ToastView" customModule="CurrencyConverter" customModuleProvider="target">
             <connections>
-                <outlet property="containerView" destination="SU9-8b-5aV" id="puG-zv-Np1"/>
+                <outlet property="containerView" destination="SU9-8b-5aV" id="vRH-ul-PVV"/>
                 <outlet property="subtitleLabel" destination="xgp-se-5fS" id="cV9-ev-8gc"/>
                 <outlet property="titleLabel" destination="3ib-gA-Zn3" id="cbZ-Bj-ycx"/>
             </connections>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="387" height="92"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-8b-5aV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-8b-5aV" customClass="ShadowView" customModule="CurrencyConverter" customModuleProvider="target">
                     <rect key="frame" x="10" y="10" width="367" height="72"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-dI-iOJ">
