@@ -35,18 +35,12 @@ final class ConverterPanelView: UIView {
         commonInit()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addShadow(radius: 8.0, opacity: 0.2)
-    }
-    
     @IBAction private func swapButtonAction(_ sender: RoundedButton) {
         actionHandler?(.switchCurrencies)
     }
     
     private func commonInit() {
         setupCards()
-        setCornerRadius(16.0)
     }
     
     private func setupCards() {

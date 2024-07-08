@@ -27,7 +27,7 @@ final class SVAlertPresenter {
         attributes.entryInteraction = .dismiss
         attributes.positionConstraints.size = .init(
             width: .offset(value: 10.0),
-            height: .constant(value: 90.0)
+            height: .intrinsic
         )
         return attributes
     }()

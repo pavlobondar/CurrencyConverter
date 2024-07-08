@@ -59,13 +59,12 @@ final class ConverterViewModel: ConverterViewModelInput {
             let request = CurrencyConversionRequest(response: convertCurrencyResponse)
             delegate?.updateBaseAmountCardState(isValid: true, message: message)
             convertCurrency(request: request)
-        } catch CurrencyValidationResult.zeroAmount {
-            convertCurrencyResponse.fromAmount = 0.0
-            convertCurrencyResponse.toAmount = 0.0
-            delegate?.clearAmounts()
-            updateConverter()
         } catch CurrencyValidationResult.exceedsMax {
             delegate?.updateBaseAmountCardState(isValid: false, message: message)
+            updateConverter()
+        } catch CurrencyValidationResult.zeroAmount {
+            convertCurrencyResponse.toAmount = 0.0
+            delegate?.clearAmounts()
             updateConverter()
         } catch {
             delegate?.showError(error: .invalidData)

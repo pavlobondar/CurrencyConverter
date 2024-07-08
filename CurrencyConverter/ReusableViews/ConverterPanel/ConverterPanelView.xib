@@ -18,58 +18,70 @@
             <rect key="frame" x="0.0" y="0.0" width="395" height="228"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="niB-Ku-qNR">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaw-5K-feI" customClass="ShadowView" customModule="CurrencyConverter" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="395" height="228"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJE-6v-HvV" customClass="RoundedLabel" customModule="CurrencyConverter" customModuleProvider="target">
-                    <rect key="frame" x="181.66666666666666" y="107" width="31.666666666666657" height="14.333333333333329"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-kH-APj">
-                    <rect key="frame" x="10" y="101.66666666666667" width="161.66666666666666" height="25"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjB-AC-gBB" customClass="RoundedButton" customModule="CurrencyConverter" customModuleProvider="target">
-                            <rect key="frame" x="68.333333333333329" y="0.0" width="25" height="25"/>
-                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="niB-Ku-qNR">
+                            <rect key="frame" x="0.0" y="0.0" width="395" height="228"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJE-6v-HvV" customClass="RoundedLabel" customModule="CurrencyConverter" customModuleProvider="target">
+                            <rect key="frame" x="181.66666666666666" y="107" width="31.666666666666657" height="14.333333333333329"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-kH-APj">
+                            <rect key="frame" x="10" y="101.66666666666667" width="161.66666666666666" height="25"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjB-AC-gBB" customClass="RoundedButton" customModule="CurrencyConverter" customModuleProvider="target">
+                                    <rect key="frame" x="68.333333333333329" y="0.0" width="25" height="25"/>
+                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="CEv-u8-fSD"/>
+                                        <constraint firstAttribute="width" secondItem="MjB-AC-gBB" secondAttribute="height" multiplier="1:1" id="mtc-rR-Oxy"/>
+                                    </constraints>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="arrow.up.arrow.down" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="swapButtonAction:" destination="-1" eventType="touchUpInside" id="Jh4-ip-tCr"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="CEv-u8-fSD"/>
-                                <constraint firstAttribute="width" secondItem="MjB-AC-gBB" secondAttribute="height" multiplier="1:1" id="mtc-rR-Oxy"/>
+                                <constraint firstItem="MjB-AC-gBB" firstAttribute="top" secondItem="aoB-kH-APj" secondAttribute="top" id="O1j-YZ-EUb"/>
+                                <constraint firstAttribute="bottom" secondItem="MjB-AC-gBB" secondAttribute="bottom" id="PSy-El-gWA"/>
+                                <constraint firstItem="MjB-AC-gBB" firstAttribute="centerY" secondItem="aoB-kH-APj" secondAttribute="centerY" id="jT0-I1-eIi"/>
+                                <constraint firstItem="MjB-AC-gBB" firstAttribute="centerX" secondItem="aoB-kH-APj" secondAttribute="centerX" id="ncq-MV-LUu"/>
                             </constraints>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="arrow.up.arrow.down" catalog="system">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                            </state>
-                            <connections>
-                                <action selector="swapButtonAction:" destination="-1" eventType="touchUpInside" id="Jh4-ip-tCr"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
-                        <constraint firstItem="MjB-AC-gBB" firstAttribute="top" secondItem="aoB-kH-APj" secondAttribute="top" id="O1j-YZ-EUb"/>
-                        <constraint firstAttribute="bottom" secondItem="MjB-AC-gBB" secondAttribute="bottom" id="PSy-El-gWA"/>
-                        <constraint firstItem="MjB-AC-gBB" firstAttribute="centerY" secondItem="aoB-kH-APj" secondAttribute="centerY" id="jT0-I1-eIi"/>
-                        <constraint firstItem="MjB-AC-gBB" firstAttribute="centerX" secondItem="aoB-kH-APj" secondAttribute="centerX" id="ncq-MV-LUu"/>
+                        <constraint firstItem="aoB-kH-APj" firstAttribute="leading" secondItem="vaw-5K-feI" secondAttribute="leading" constant="10" id="3CL-N9-ZoV"/>
+                        <constraint firstItem="aoB-kH-APj" firstAttribute="centerY" secondItem="WJE-6v-HvV" secondAttribute="centerY" id="IQw-fA-eQU"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WJE-6v-HvV" secondAttribute="trailing" constant="20" id="SFG-VE-fmY"/>
+                        <constraint firstItem="niB-Ku-qNR" firstAttribute="leading" secondItem="vaw-5K-feI" secondAttribute="leading" id="TDC-Ef-kUZ"/>
+                        <constraint firstItem="niB-Ku-qNR" firstAttribute="top" secondItem="vaw-5K-feI" secondAttribute="top" id="WIy-Qf-GGg"/>
+                        <constraint firstAttribute="bottom" secondItem="niB-Ku-qNR" secondAttribute="bottom" id="ZWV-SA-c4w"/>
+                        <constraint firstItem="WJE-6v-HvV" firstAttribute="leading" secondItem="aoB-kH-APj" secondAttribute="trailing" constant="10" id="eEi-zH-0Or"/>
+                        <constraint firstAttribute="trailing" secondItem="niB-Ku-qNR" secondAttribute="trailing" id="jjg-FU-iGc"/>
+                        <constraint firstItem="WJE-6v-HvV" firstAttribute="centerX" secondItem="vaw-5K-feI" secondAttribute="centerX" id="oK3-bK-ldQ"/>
+                        <constraint firstItem="WJE-6v-HvV" firstAttribute="centerY" secondItem="vaw-5K-feI" secondAttribute="centerY" id="wCk-Aq-3RX"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="WJE-6v-HvV" firstAttribute="leading" secondItem="aoB-kH-APj" secondAttribute="trailing" constant="10" id="ABi-RS-bV5"/>
-                <constraint firstItem="niB-Ku-qNR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DbY-UQ-PWd"/>
-                <constraint firstAttribute="bottom" secondItem="niB-Ku-qNR" secondAttribute="bottom" id="HlZ-xZ-hLT"/>
-                <constraint firstItem="WJE-6v-HvV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P6s-ll-TzQ"/>
-                <constraint firstItem="WJE-6v-HvV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Rpf-el-4lB"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WJE-6v-HvV" secondAttribute="trailing" constant="20" id="Uya-j0-ecz"/>
-                <constraint firstItem="aoB-kH-APj" firstAttribute="centerY" secondItem="WJE-6v-HvV" secondAttribute="centerY" id="a1f-o0-Gu3"/>
-                <constraint firstItem="niB-Ku-qNR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hXe-F4-0c5"/>
-                <constraint firstItem="aoB-kH-APj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="sh4-6x-g3d"/>
-                <constraint firstAttribute="trailing" secondItem="niB-Ku-qNR" secondAttribute="trailing" id="yA6-xl-aYS"/>
+                <constraint firstAttribute="trailing" secondItem="vaw-5K-feI" secondAttribute="trailing" id="1rC-Br-gv2"/>
+                <constraint firstItem="vaw-5K-feI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RVY-gK-9qK"/>
+                <constraint firstAttribute="bottom" secondItem="vaw-5K-feI" secondAttribute="bottom" id="Vg6-Me-eSW"/>
+                <constraint firstItem="vaw-5K-feI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nwM-j0-hCT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-0.76335877862595414" y="-200"/>
@@ -78,10 +90,10 @@
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="97"/>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

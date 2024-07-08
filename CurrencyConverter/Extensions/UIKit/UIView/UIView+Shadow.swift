@@ -9,7 +9,6 @@ import UIKit
 
 extension UIView {
     func addShadow(color: UIColor = .black, radius: CGFloat, opacity: Float) {
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
         layer.masksToBounds = false
         layer.shadowOpacity = opacity
         layer.shadowRadius = radius
